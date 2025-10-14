@@ -10,11 +10,17 @@ using System.Windows.Forms;
 
 namespace RestaurantWinForm
 {
-    public partial class Form1: Form
+    public partial class MainForm: Form
     {
-        public Form1()
+        public MainForm()
         {
             InitializeComponent();
+        }
+
+        private void ToolStripAddButton_Click(object sender, EventArgs e)
+        {
+            AddOrderForm addOrderForm = new AddOrderForm();
+            addOrderForm.ShowDialog();
         }
     }
 }
