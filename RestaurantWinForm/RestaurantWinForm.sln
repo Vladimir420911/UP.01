@@ -5,6 +5,8 @@ VisualStudioVersion = 17.13.35818.85 d17.13
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestaurantWinForm", "RestaurantWinForm\RestaurantWinForm.csproj", "{D0DDED28-FA05-4733-B792-E96E84BB28FC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassLib", "ClassLib\ClassLib.csproj", "{518F5BA9-BDC6-46AD-BBE2-60B5DBBADB9F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{D0DDED28-FA05-4733-B792-E96E84BB28FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D0DDED28-FA05-4733-B792-E96E84BB28FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D0DDED28-FA05-4733-B792-E96E84BB28FC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{518F5BA9-BDC6-46AD-BBE2-60B5DBBADB9F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{518F5BA9-BDC6-46AD-BBE2-60B5DBBADB9F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{518F5BA9-BDC6-46AD-BBE2-60B5DBBADB9F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{518F5BA9-BDC6-46AD-BBE2-60B5DBBADB9F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
