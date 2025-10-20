@@ -16,5 +16,11 @@ namespace RestaurantWinForm
         {
             InitializeComponent();
         }
+
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+            AddOrderForm addOrderForm = new AddOrderForm();
+            addOrderForm.Show();
+        }
     }
 }
