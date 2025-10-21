@@ -18,16 +18,16 @@ namespace ClassLib
         public string AddOrder(Order order)
         {
             orders.Add(order);
-            return "Заказ отправлен на кухню";
+            return "Заказ принят";
         }
 
         public Order CreateOrder(int seatId, List<OrderItem> items)
         {
             if (seatId <= 0)
-                throw new ArgumentException("Номер столика не выбран.");
+                return null;
 
             if (items == null || items.Count == 0)
-                throw new ArgumentException("Не выбрано ни одного блюда.");
+                return null;
 
             var order = new Order
             {
