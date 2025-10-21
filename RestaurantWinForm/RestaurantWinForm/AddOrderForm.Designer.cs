@@ -39,17 +39,16 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(40, 13);
+            this.label1.Location = new System.Drawing.Point(9, 227);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(42, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "столик";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // SeatsComboBox
             // 
             this.SeatsComboBox.FormattingEnabled = true;
-            this.SeatsComboBox.Location = new System.Drawing.Point(23, 29);
+            this.SeatsComboBox.Location = new System.Drawing.Point(12, 243);
             this.SeatsComboBox.Name = "SeatsComboBox";
             this.SeatsComboBox.Size = new System.Drawing.Size(121, 21);
             this.SeatsComboBox.TabIndex = 1;
@@ -57,7 +56,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(40, 53);
+            this.label2.Location = new System.Drawing.Point(12, 9);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(39, 13);
             this.label2.TabIndex = 2;
@@ -66,14 +65,14 @@
             // OrderItemDataGridView
             // 
             this.OrderItemDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.OrderItemDataGridView.Location = new System.Drawing.Point(23, 75);
+            this.OrderItemDataGridView.Location = new System.Drawing.Point(12, 25);
             this.OrderItemDataGridView.Name = "OrderItemDataGridView";
-            this.OrderItemDataGridView.Size = new System.Drawing.Size(240, 150);
+            this.OrderItemDataGridView.Size = new System.Drawing.Size(776, 191);
             this.OrderItemDataGridView.TabIndex = 3;
             // 
             // AddButton
             // 
-            this.AddButton.Location = new System.Drawing.Point(32, 249);
+            this.AddButton.Location = new System.Drawing.Point(12, 280);
             this.AddButton.Name = "AddButton";
             this.AddButton.Size = new System.Drawing.Size(75, 23);
             this.AddButton.TabIndex = 4;
