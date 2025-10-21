@@ -35,7 +35,7 @@ namespace ClassLib
                 SeatId = seatId,
                 Items = items,
                 TotalPrice = items.Sum(i => i.Price * i.Quantity),
-                Status = "Готовка"
+                Status = OrderStatus.Принят
             };
 
             return order;
