@@ -12,6 +12,6 @@ namespace ClassLib
         public int SeatId { get; set; }
         public List<OrderItem> Items { get; set; }
         public decimal TotalPrice { get; set; }
-        public string Status { get; set; }
+        public OrderStatus Status { get; set; }
     }
 }
