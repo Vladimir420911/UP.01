@@ -9,11 +9,6 @@ namespace ClassLib
     public class OrderManager : IOrderRepository
     {
         private List<Order> orders = new List<Order>();
-        private IOrderRepository _orderRepository;
-        public OrderManager(IOrderRepository orderRepository)
-        {
-            _orderRepository = orderRepository;
-        }
 
         public string AddOrder(Order order)
         {
