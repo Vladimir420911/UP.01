@@ -8,8 +8,8 @@ namespace ClassLib
 {
     public enum OrderStatus
     {
-        Принят = 0,
-        Готовка,
-        Готов
+        Accepted = 0,
+        Cooking,
+        Ready
     }
 }
