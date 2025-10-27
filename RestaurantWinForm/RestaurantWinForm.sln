@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestaurantWinForm", "Restau
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassLib", "ClassLib\ClassLib.csproj", "{393BEE2F-647C-4D87-8115-BFBAFA908D6C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestProject", "UnitTestProject\UnitTestProject.csproj", "{7D4115B5-6E26-4A40-B536-CF3328672512}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{393BEE2F-647C-4D87-8115-BFBAFA908D6C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{393BEE2F-647C-4D87-8115-BFBAFA908D6C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{393BEE2F-647C-4D87-8115-BFBAFA908D6C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7D4115B5-6E26-4A40-B536-CF3328672512}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7D4115B5-6E26-4A40-B536-CF3328672512}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7D4115B5-6E26-4A40-B536-CF3328672512}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7D4115B5-6E26-4A40-B536-CF3328672512}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
