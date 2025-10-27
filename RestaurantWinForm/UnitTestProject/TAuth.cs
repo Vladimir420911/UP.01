@@ -66,6 +66,23 @@ namespace UnitTestProject
             Assert.IsNull(_authManager.CurrentUser);
         }
 
+        [TestMethod]
+        public void Login_ValidChefCredentials_ReturnsTrue()
+        {
+            var chef = new Staff(1);
+            chef.Username = "chef_alex";
+            chef.Password = "kitchen123";
 
+            chef.Role = UserRole.Chef;
+
+            _mockStaffRepo.Setup(repo => repo.GetByUsername("chef_alex"))
+                          .Returns(chef);
+
+            bool result = _authManager.Login("chef_alex", "kitchen123");
+
+            Assert.IsTrue(result);
+            Assert.AreEqual(UserRole.Chef, _authManager.CurrentUser.Role);
+            Assert.AreEqual("chef_alex", _authManager.CurrentUser.Username);
+        }
     }
 }
