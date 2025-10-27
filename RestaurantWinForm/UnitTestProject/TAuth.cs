@@ -22,7 +22,6 @@ namespace UnitTestProject
         [TestMethod]
         public void Login_ValidWaiterCredentials_ReturnsTrue()
         {
-            // Arrange
             var waiter = new Staff(1);
             waiter.Username = "ivanov";
             waiter.Password = "password123";
@@ -31,10 +30,8 @@ namespace UnitTestProject
             _mockStaffRepo.Setup(repo => repo.GetByUsername("ivanov"))
                           .Returns(waiter);
 
-            // Act
             bool result = _authManager.Login("ivanov", "password123");
 
-            // Assert
             Assert.IsTrue(result);
             Assert.AreEqual(UserRole.Waiter, _authManager.CurrentUser.Role);
             Assert.AreEqual("ivanov", _authManager.CurrentUser.Username);
@@ -43,14 +40,28 @@ namespace UnitTestProject
         [TestMethod]
         public void Login_InvalidUsername_ReturnsFalse()
         {
-            // Arrange
             _mockStaffRepo.Setup(repo => repo.GetByUsername("unknown"))
                           .Returns((Staff)null);
 
-            // Act
             bool result = _authManager.Login("unknown", "password123");
 
-            // Assert
+            Assert.IsFalse(result);
+            Assert.IsNull(_authManager.CurrentUser);
+        }
+
+        [TestMethod]
+        public void Login_InvalidPassword_ReturnsFalse()
+        {
+            var waiter = new Staff(1);
+            waiter.Username = "ivanov";
+            waiter.Password = "password123";
+            waiter.Role = UserRole.Waiter;
+
+            _mockStaffRepo.Setup(repo => repo.GetByUsername("ivanov"))
+                          .Returns(waiter);
+
+            bool result = _authManager.Login("ivanov", "wrongpassword");
+
             Assert.IsFalse(result);
             Assert.IsNull(_authManager.CurrentUser);
         }
