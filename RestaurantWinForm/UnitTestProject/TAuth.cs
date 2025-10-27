@@ -18,6 +18,7 @@ namespace UnitTestProject
             _mockStaffRepo = new Mock<IStaffRepository>();
             _authManager = new AuthManager(_mockStaffRepo.Object);
         }
+
         [TestMethod]
         public void Login_ValidWaiterCredentials_ReturnsTrue()
         {
@@ -38,5 +39,22 @@ namespace UnitTestProject
             Assert.AreEqual(UserRole.Waiter, _authManager.CurrentUser.Role);
             Assert.AreEqual("ivanov", _authManager.CurrentUser.Username);
         }
+
+        [TestMethod]
+        public void Login_InvalidUsername_ReturnsFalse()
+        {
+            // Arrange
+            _mockStaffRepo.Setup(repo => repo.GetByUsername("unknown"))
+                          .Returns((Staff)null);
+
+            // Act
+            bool result = _authManager.Login("unknown", "password123");
+
+            // Assert
+            Assert.IsFalse(result);
+            Assert.IsNull(_authManager.CurrentUser);
+        }
+
+
     }
 }
