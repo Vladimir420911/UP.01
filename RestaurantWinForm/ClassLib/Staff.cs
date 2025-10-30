@@ -10,13 +10,15 @@ namespace ClassLib
     public class Staff
     {
         private int StaffId;
+        public string Login { get; set; }
+        private string Password;
         public string Username { get; set; }
-        public string Password { get; set; }
         public UserRole Role { get; set; }
 
-        public Staff(int id)
+        public Staff(int id, string password)
         {
             StaffId = id;
+            Password = password;
         }
     }
 }
