@@ -22,9 +22,8 @@ namespace UnitTestProject
         [TestMethod]
         public void Login_ValidWaiterCredentials_ReturnsTrue()
         {
-            var waiter = new Staff(1);
+            var waiter = new Staff(1, "password123");
             waiter.Username = "ivanov";
-            waiter.Password = "password123";
             waiter.Role = UserRole.Waiter;
 
             _mockStaffRepo.Setup(repo => repo.GetByUsername("ivanov"))
@@ -52,9 +51,8 @@ namespace UnitTestProject
         [TestMethod]
         public void Login_InvalidPassword_ReturnsFalse()
         {
-            var waiter = new Staff(1);
+            var waiter = new Staff(1, "password123");
             waiter.Username = "ivanov";
-            waiter.Password = "password123";
             waiter.Role = UserRole.Waiter;
 
             _mockStaffRepo.Setup(repo => repo.GetByUsername("ivanov"))
@@ -69,9 +67,8 @@ namespace UnitTestProject
         [TestMethod]
         public void Login_ValidChefCredentials_ReturnsTrue()
         {
-            var chef = new Staff(1);
+            var chef = new Staff(1, "kitchen123");
             chef.Username = "chef_alex";
-            chef.Password = "kitchen123";
 
             chef.Role = UserRole.Chef;
 
