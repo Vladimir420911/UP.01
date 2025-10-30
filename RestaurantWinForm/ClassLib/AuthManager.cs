@@ -26,7 +26,7 @@ namespace ClassLib
             }
 
             var staff = _staffRepository.GetByUsername(username);
-            if (staff == null || staff.Password != password)
+            if (staff == null || staff.Password_ != password)
             {
                 CurrentUser = null;
                 return false;
