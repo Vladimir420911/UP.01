@@ -17,23 +17,29 @@ namespace ClassLib
 
         public Staff CurrentUser { get; private set; }
 
-        public bool Login(string username, string password)
+        public LoginResult Login(string username, string password)
         {
             if (string.IsNullOrWhiteSpace(username) || string.IsNullOrWhiteSpace(password))
             {
                 CurrentUser = null;
-                return false;
+                return LoginResult.PasswordOrLoginIsWhiteSpace;
             }
 
             var staff = _staffRepository.GetByUsername(username);
-            if (staff == null || staff.Password_ != password)
+            if (staff == null)
             {
                 CurrentUser = null;
-                return false;
+                return LoginResult.WrongLogin;
+            }
+
+            if(staff != null && staff.Password_ != password)
+            {
+                CurrentUser = null;
+                return LoginResult.WrongPassword;
             }
 
             CurrentUser = staff;
-            return true;
+            return LoginResult.Success;
         }
 
         public void Logout()
