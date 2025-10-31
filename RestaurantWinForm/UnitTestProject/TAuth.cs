@@ -20,7 +20,7 @@ namespace UnitTestProject
         }
 
         [TestMethod]
-        public void Login_ValidWaiterCredentials_ReturnsTrue()
+        public void Login_ValidWaiterCredentials_ReturnsSuccess()
         {
             var waiter = new Staff(1, "password123");
             waiter.Username = "ivanov";
@@ -29,27 +29,27 @@ namespace UnitTestProject
             _mockStaffRepo.Setup(repo => repo.GetByUsername("ivanov"))
                           .Returns(waiter);
 
-            bool result = _authManager.Login("ivanov", "password123");
+            LoginResult result = _authManager.Login("ivanov", "password123");
 
-            Assert.IsTrue(result);
+            Assert.AreEqual(LoginResult.Success, result);
             Assert.AreEqual(UserRole.Waiter, _authManager.CurrentUser.Role);
             Assert.AreEqual("ivanov", _authManager.CurrentUser.Username);
         }
 
         [TestMethod]
-        public void Login_InvalidUsername_ReturnsFalse()
+        public void Login_InvalidLogin_ReturnsWrongLogin()
         {
             _mockStaffRepo.Setup(repo => repo.GetByUsername("unknown"))
                           .Returns((Staff)null);
 
-            bool result = _authManager.Login("unknown", "password123");
+            LoginResult result = _authManager.Login("unknown", "password123");
 
-            Assert.IsFalse(result);
+            Assert.AreEqual(LoginResult.WrongLogin, result);
             Assert.IsNull(_authManager.CurrentUser);
         }
 
         [TestMethod]
-        public void Login_InvalidPassword_ReturnsFalse()
+        public void Login_InvalidPassword_ReturnsWrongPassword()
         {
             var waiter = new Staff(1, "password123");
             waiter.Username = "ivanov";
@@ -58,14 +58,14 @@ namespace UnitTestProject
             _mockStaffRepo.Setup(repo => repo.GetByUsername("ivanov"))
                           .Returns(waiter);
 
-            bool result = _authManager.Login("ivanov", "wrongpassword");
+            LoginResult result = _authManager.Login("ivanov", "wrongpassword");
 
-            Assert.IsFalse(result);
+            Assert.AreEqual(LoginResult.WrongPassword, result);
             Assert.IsNull(_authManager.CurrentUser);
         }
 
         [TestMethod]
-        public void Login_ValidChefCredentials_ReturnsTrue()
+        public void Login_ValidChefCredentials_ReturnsSuccess()
         {
             var chef = new Staff(1, "kitchen123");
             chef.Username = "chef_alex";
@@ -75,9 +75,9 @@ namespace UnitTestProject
             _mockStaffRepo.Setup(repo => repo.GetByUsername("chef_alex"))
                           .Returns(chef);
 
-            bool result = _authManager.Login("chef_alex", "kitchen123");
+            LoginResult result = _authManager.Login("chef_alex", "kitchen123");
 
-            Assert.IsTrue(result);
+            Assert.AreEqual(LoginResult.Success, result);
             Assert.AreEqual(UserRole.Chef, _authManager.CurrentUser.Role);
             Assert.AreEqual("chef_alex", _authManager.CurrentUser.Username);
         }
