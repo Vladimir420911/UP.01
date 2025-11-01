@@ -81,5 +81,25 @@ namespace UnitTestProject
             Assert.AreEqual(UserRole.Chef, _authManager.CurrentUser.Role);
             Assert.AreEqual("chef_alex", _authManager.CurrentUser.Username);
         }
+
+        [TestMethod]
+        public void LoginAndPasswordIsWhiteSpace_ReturnsPasswordOrLoginIsWhiteSpace()
+        {
+            var waiter = new Staff(1, "123");
+            waiter.Login = "Login1";
+            waiter.Username = "staff_member1";
+            waiter.Role = UserRole.Waiter;
+
+            _mockStaffRepo.Setup(repo => repo.GetByUsername("staff_member1"))
+                          .Returns(waiter);
+
+            LoginResult resEmptyLogin = _authManager.Login("", "123");
+            LoginResult resEmptyPassword = _authManager.Login("Login1", "");
+            LoginResult resWhitespaceLoginAndPassword = _authManager.Login("  ", "  ");
+
+            Assert.AreEqual(LoginResult.PasswordOrLoginIsWhiteSpace, resEmptyLogin);
+            Assert.AreEqual(LoginResult.PasswordOrLoginIsWhiteSpace, resEmptyPassword);
+            Assert.AreEqual(LoginResult.PasswordOrLoginIsWhiteSpace, resWhitespaceLoginAndPassword);
+        }
     }
 }
