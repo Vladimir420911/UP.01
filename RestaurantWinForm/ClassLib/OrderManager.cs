@@ -35,5 +35,19 @@ namespace ClassLib
 
             return order;
         }
+
+        public string UpdateOrderStatus(int orderId, OrderStatus newStatus)
+        {
+            foreach (var order in orders)
+            {
+                if (order.OrderId == orderId)
+                {
+                  order.Status = newStatus;
+                    return "Статус изменен";
+                }
+
+            }
+            return "Заказ не найден";
+        }
     }
 }
