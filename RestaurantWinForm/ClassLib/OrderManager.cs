@@ -35,5 +35,10 @@ namespace ClassLib
 
             return order;
         }
+
+        public string UpdateOrderStatus(int orderId, OrderStatus newStatus)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
