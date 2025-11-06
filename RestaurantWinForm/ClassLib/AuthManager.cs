@@ -9,10 +9,19 @@ namespace ClassLib
     public class AuthManager : IStaffRepository
     {
         public Staff CurrentUser { get; private set; }
+        private List<Staff> users;
 
         public Staff GetUserByLogin(string login)
         {
-            throw new NotImplementedException();
+            foreach(var user in users)
+            {
+                if(user.Login == login)
+                {
+                    return user;
+                }
+            }
+
+            return null;
         }
 
         public LoginResult Login(string login, string password)
