@@ -38,7 +38,16 @@ namespace ClassLib
 
         public string UpdateOrderStatus(int orderId, OrderStatus newStatus)
         {
-            throw new NotImplementedException();
+            foreach (var order in orders)
+            {
+                if (order.OrderId == orderId)
+                {
+                  order.Status = newStatus;
+                    return "Статус изменен";
+                }
+
+            }
+            return "Заказ не найден";
         }
     }
 }
