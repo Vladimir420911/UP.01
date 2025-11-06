@@ -9,5 +9,6 @@ namespace ClassLib
     public interface IStaffRepository
     {
         LoginResult Login(string login, string password);
+        Staff GetUserByLogin(string login);
     }
 }
