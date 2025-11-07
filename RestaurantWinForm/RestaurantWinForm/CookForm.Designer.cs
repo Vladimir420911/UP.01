@@ -64,6 +64,7 @@
             this.BeginCookingButton.Name = "BeginCookingButton";
             this.BeginCookingButton.Size = new System.Drawing.Size(23, 22);
             this.BeginCookingButton.Text = "toolStripButton1";
+            this.BeginCookingButton.Click += new System.EventHandler(this.BeginCookingButton_Click);
             // 
             // OrderReadyButton
             // 
