@@ -74,6 +74,7 @@
             this.OrderReadyButton.Name = "OrderReadyButton";
             this.OrderReadyButton.Size = new System.Drawing.Size(23, 22);
             this.OrderReadyButton.Text = "toolStripButton2";
+            this.OrderReadyButton.Click += new System.EventHandler(this.OrderReadyButton_Click);
             // 
             // CookForm
             // 

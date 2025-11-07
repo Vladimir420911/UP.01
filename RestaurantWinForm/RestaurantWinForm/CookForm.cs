@@ -32,5 +32,17 @@ namespace RestaurantWinForm
             }
 
         }
+
+        private void OrderReadyButton_Click(object sender, EventArgs e)
+        {
+            if (OrderTable.SelectedRows.Count > 0)
+            {
+                foreach (DataGridViewRow selectedRow in OrderTable.SelectedRows)
+                {
+                    orderManager.UpdateOrderStatus(selectedRow.Index + 1, OrderStatus.Ready);
+                }
+
+            }
+        }
     }
 }
