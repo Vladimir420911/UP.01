@@ -45,10 +45,18 @@ namespace RestaurantWinForm
 
             if(result == LoginResult.Success)
             {
-                MainForm form = new MainForm();
-                form.Show();
-
                 this.Hide();
+                if (authManager.CurrentUser.Role == UserRole.Cook)
+                {
+                    var form = new CookForm();
+                    form.Show();
+                }
+
+                if(authManager.CurrentUser.Role == UserRole.Cook)
+                {
+                    var form = new WaiterForm();
+                    form.Show();
+                }
             }
 
         }
