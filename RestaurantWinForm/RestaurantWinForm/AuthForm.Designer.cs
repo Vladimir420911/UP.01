@@ -28,12 +28,78 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.LoginTextBox = new System.Windows.Forms.TextBox();
+            this.PasswordTextBox = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.EnterButton = new System.Windows.Forms.Button();
+            this.SuspendLayout();
+            // 
+            // LoginTextBox
+            // 
+            this.LoginTextBox.Location = new System.Drawing.Point(12, 34);
+            this.LoginTextBox.Name = "LoginTextBox";
+            this.LoginTextBox.Size = new System.Drawing.Size(142, 20);
+            this.LoginTextBox.TabIndex = 0;
+            // 
+            // PasswordTextBox
+            // 
+            this.PasswordTextBox.Location = new System.Drawing.Point(12, 78);
+            this.PasswordTextBox.Name = "PasswordTextBox";
+            this.PasswordTextBox.Size = new System.Drawing.Size(142, 20);
+            this.PasswordTextBox.TabIndex = 1;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(9, 18);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(38, 13);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Логин";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(12, 62);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(45, 13);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "Пароль";
+            // 
+            // EnterButton
+            // 
+            this.EnterButton.Location = new System.Drawing.Point(15, 118);
+            this.EnterButton.Name = "EnterButton";
+            this.EnterButton.Size = new System.Drawing.Size(139, 23);
+            this.EnterButton.TabIndex = 4;
+            this.EnterButton.Text = "Войти";
+            this.EnterButton.UseVisualStyleBackColor = true;
+            // 
+            // AuthForm
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(172, 182);
+            this.Controls.Add(this.EnterButton);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.PasswordTextBox);
+            this.Controls.Add(this.LoginTextBox);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.Name = "AuthForm";
             this.Text = "AuthForm";
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
         }
 
         #endregion
+
+        private System.Windows.Forms.TextBox LoginTextBox;
+        private System.Windows.Forms.TextBox PasswordTextBox;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button EnterButton;
     }
 }
