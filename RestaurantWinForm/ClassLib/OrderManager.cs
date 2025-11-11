@@ -8,7 +8,7 @@ namespace ClassLib
 {
     public class OrderManager : IOrderRepository
     {
-        private List<Order> orders = new List<Order>();
+        public List<Order> orders = new List<Order>();
 
         public string AddOrder(Order order)
         {
@@ -34,6 +34,20 @@ namespace ClassLib
             };
 
             return order;
+        }
+
+        public string UpdateOrderStatus(int orderId, OrderStatus newStatus)
+        {
+            foreach (var order in orders)
+            {
+                if (order.OrderId == orderId)
+                {
+                  order.Status = newStatus;
+                    return "Статус изменен";
+                }
+
+            }
+            return "Заказ не найден";
         }
     }
 }
