@@ -39,10 +39,13 @@
             // 
             // OrderTable
             // 
+            this.OrderTable.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.OrderTable.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.OrderTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.OrderTable.Location = new System.Drawing.Point(12, 26);
+            this.OrderTable.Location = new System.Drawing.Point(12, 38);
             this.OrderTable.Name = "OrderTable";
-            this.OrderTable.Size = new System.Drawing.Size(776, 225);
+            this.OrderTable.Size = new System.Drawing.Size(704, 225);
             this.OrderTable.TabIndex = 0;
             // 
             // toolStrip1
@@ -52,35 +55,38 @@
             this.OrderReadyButton});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(800, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(728, 35);
             this.toolStrip1.TabIndex = 1;
             this.toolStrip1.Text = "toolStrip1";
             // 
             // BeginCookingButton
             // 
+            this.BeginCookingButton.AutoSize = false;
             this.BeginCookingButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.BeginCookingButton.Image = ((System.Drawing.Image)(resources.GetObject("BeginCookingButton.Image")));
+            this.BeginCookingButton.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.BeginCookingButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BeginCookingButton.Name = "BeginCookingButton";
-            this.BeginCookingButton.Size = new System.Drawing.Size(23, 22);
-            this.BeginCookingButton.Text = "toolStripButton1";
+            this.BeginCookingButton.Size = new System.Drawing.Size(32, 32);
+            this.BeginCookingButton.Text = "начать готовку";
             this.BeginCookingButton.Click += new System.EventHandler(this.BeginCookingButton_Click);
             // 
             // OrderReadyButton
             // 
+            this.OrderReadyButton.AutoSize = false;
             this.OrderReadyButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.OrderReadyButton.Image = ((System.Drawing.Image)(resources.GetObject("OrderReadyButton.Image")));
             this.OrderReadyButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.OrderReadyButton.Name = "OrderReadyButton";
-            this.OrderReadyButton.Size = new System.Drawing.Size(23, 22);
-            this.OrderReadyButton.Text = "toolStripButton2";
+            this.OrderReadyButton.Size = new System.Drawing.Size(32, 32);
+            this.OrderReadyButton.Text = "готово";
             this.OrderReadyButton.Click += new System.EventHandler(this.OrderReadyButton_Click);
             // 
             // CookForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(728, 450);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.OrderTable);
             this.Name = "CookForm";
