@@ -35,5 +35,10 @@ namespace ClassLib
 
             return order;
         }
+
+        public RegistrationResult Register(string username, string login, string password, UserRole role)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
