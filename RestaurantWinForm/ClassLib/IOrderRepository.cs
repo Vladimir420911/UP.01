@@ -10,6 +10,5 @@ namespace ClassLib
     {
         Order CreateOrder(int seatId, List<OrderItem> items);
         string AddOrder(Order order);
-        RegistrationResult Register(string username, string login, string password, UserRole role);
     }
 }
