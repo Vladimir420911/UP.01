@@ -7,8 +7,9 @@ namespace UnitTestProject
     public class TRegistration
     {
         [TestMethod]
-        public void TestMethod1()
+        public void TRegisterReturnsSuccess()
         {
+
         }
     }
 }

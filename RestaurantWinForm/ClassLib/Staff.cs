@@ -14,5 +14,11 @@ namespace ClassLib
         public string Password_ { get { return Password; } }
         public string UserName { get; set; }
         public UserRole Role { get; set; }
+
+        public Staff(int id, string password)
+        {
+            StaffId = id;
+            Password = password;
+        }
     }
 }
