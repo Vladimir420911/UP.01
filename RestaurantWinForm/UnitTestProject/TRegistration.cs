@@ -25,7 +25,6 @@ namespace UnitTestProject
             Assert.AreEqual(RegistrationResult.Success, result);
         }
 
-
         [TestMethod]
         public void TRegisterReturnsExistingLogin()
         {
@@ -44,6 +43,19 @@ namespace UnitTestProject
             var result = mockRepo.Object.Register("newSotrudnik", "login2", "123", UserRole.Waiter);
 
             Assert.AreEqual(RegistrationResult.ExistingLogin, result);
+        }
+
+        [TestMethod]
+        public void TRegisterReturnsExistingUsername()
+        {
+            var mockRepo = new Mock<IStaffRepository>();
+
+            mockRepo.Setup(repo => repo.Register("newSotrudnik", "login2", "123", UserRole.Waiter))
+                    .Returns(RegistrationResult.ExistingUsername);
+
+            var result = mockRepo.Object.Register("user2", "newSotrudnikLogin", "123", UserRole.Waiter);
+
+            Assert.AreEqual(RegistrationResult.ExistingUsername, result);
         }
     }
 }
