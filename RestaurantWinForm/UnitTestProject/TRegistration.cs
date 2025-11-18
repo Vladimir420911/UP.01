@@ -30,11 +30,25 @@ namespace UnitTestProject
 
         [TestMethod]
         [DataRow("newSotrudnik", "login2", "123", UserRole.Waiter, RegistrationResult.ExistingLogin)]
-        public void TRegister_ReturnsFailure(string username, string login, string password, UserRole role, RegistrationResult regRes)
+        [DataRow("user3", "newLogin", "123", UserRole.Cook, RegistrationResult.ExistingUsername)]
+        public void TRegister_ReturnsFailure(string username, string login, string password, UserRole role, RegistrationResult expected)
+        {
+            var result = AuthManager_.Register(username, login, password, role);
+                
+            Assert.AreEqual(expected, result);
+        }
+
+        [TestMethod]
+        [DataRow("", "login", "123", UserRole.Cook)]
+        [DataRow("sotrudnik", "", "123", UserRole.Waiter)]
+        [DataRow("sotrudnik", "login", "", UserRole.Waiter)]
+        public void TRegister_ReturnsEmptyFields(string username, string login, string password, UserRole role)
         {
             var result = AuthManager_.Register(username, login, password, role);
 
-            Assert.AreEqual(regRes, result);
+            Assert.AreEqual(RegistrationResult.EmptyFields, result);
         }
+
+
     }
 }
