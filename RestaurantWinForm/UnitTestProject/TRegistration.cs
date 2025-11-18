@@ -42,6 +42,9 @@ namespace UnitTestProject
         [DataRow("", "login", "123", UserRole.Cook)]
         [DataRow("sotrudnik", "", "123", UserRole.Waiter)]
         [DataRow("sotrudnik", "login", "", UserRole.Waiter)]
+        [DataRow(" ", "login", "123", UserRole.Cook)]
+        [DataRow("sotrudnik", " ", "123", UserRole.Waiter)]
+        [DataRow("sotrudnik", "login", " ", UserRole.Waiter)]
         public void TRegister_ReturnsEmptyFields(string username, string login, string password, UserRole role)
         {
             var result = AuthManager_.Register(username, login, password, role);
