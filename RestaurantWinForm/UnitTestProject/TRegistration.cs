@@ -2,60 +2,39 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
-using Moq;
 
 namespace UnitTestProject
 {
     [TestClass]
     public class TRegistration
     {
-        [TestMethod]
-        public void TRegisterReturnsSuccess()
+        AuthManager AuthManager_;
+
+        [TestInitialize]
+        public void TestInit()
         {
-            var mockRepo = new Mock<IStaffRepository>();
+            AuthManager_ = new AuthManager();
 
-            mockRepo.Setup(repo => repo.GetUserByLogin("newSotrudnikLogin"))
-                    .Returns((Staff)null);
+            AuthManager_.Register("user1", "login1", "1234", UserRole.Cook);
+            AuthManager_.Register("user2", "login2", "12345", UserRole.Cook);
+            AuthManager_.Register("user3", "login3", "123456", UserRole.Waiter);
+        }
 
-            mockRepo.Setup(repo => repo.Register("newSotrudnik", "newSotrudnikLogin", "123", UserRole.Waiter))
-                    .Returns(RegistrationResult.Success);
-
-            var result = mockRepo.Object.Register("newSotrudnik", "newSotrudnikLogin", "123", UserRole.Waiter);
+        [TestMethod]
+        public void TRegister_ReturnsSuccess()
+        {
+            var result = AuthManager_.Register("newSotrudnik", "newLogin", "123", UserRole.Waiter);
 
             Assert.AreEqual(RegistrationResult.Success, result);
         }
 
         [TestMethod]
-        public void TRegisterReturnsExistingLogin()
+        [DataRow("newSotrudnik", "login2", "123", UserRole.Waiter, RegistrationResult.ExistingLogin)]
+        public void TRegister_ReturnsFailure(string username, string login, string password, UserRole role, RegistrationResult regRes)
         {
-            var mockRepo = new Mock<IStaffRepository>();
-            var existingUser = new Staff(1, "123");
-            existingUser.UserName = "user1";
-            existingUser.Login = "login1";
-            existingUser.Role = UserRole.Waiter;
+            var result = AuthManager_.Register(username, login, password, role);
 
-            mockRepo.Setup(repo => repo.GetUserByLogin("login1"))
-                    .Returns(existingUser);
-
-            mockRepo.Setup(repo => repo.Register("newSotrudnik", "login2", "123", UserRole.Waiter))
-                    .Returns(RegistrationResult.ExistingLogin);
-
-            var result = mockRepo.Object.Register("newSotrudnik", "login2", "123", UserRole.Waiter);
-
-            Assert.AreEqual(RegistrationResult.ExistingLogin, result);
-        }
-
-        [TestMethod]
-        public void TRegisterReturnsExistingUsername()
-        {
-            var mockRepo = new Mock<IStaffRepository>();
-
-            mockRepo.Setup(repo => repo.Register("newSotrudnik", "login2", "123", UserRole.Waiter))
-                    .Returns(RegistrationResult.ExistingUsername);
-
-            var result = mockRepo.Object.Register("user2", "newSotrudnikLogin", "123", UserRole.Waiter);
-
-            Assert.AreEqual(RegistrationResult.ExistingUsername, result);
+            Assert.AreEqual(regRes, result);
         }
     }
 }
