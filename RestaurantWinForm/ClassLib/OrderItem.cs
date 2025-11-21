@@ -11,6 +11,13 @@ namespace ClassLib
         private int MenuItemId;
         public string Name { get; set; }
         public decimal Price { get; set; }
-        public int Quantity { get; set; }
+        public string Description{ get; set; }
+        public OrderItem(int menuItemId, string name, decimal price, string description)
+        {
+            MenuItemId = menuItemId;
+            Name = name;
+            Price = price;
+             Description = description;
+        }
     }
 }
