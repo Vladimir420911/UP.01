@@ -13,9 +13,11 @@ namespace RestaurantWinForm
 {
     public partial class AuthForm : Form
     {
+        private AuthManager authManager;
         public AuthForm()
         {
             InitializeComponent();
+            authManager = new AuthManager();
         }
 
         private void EnterButton_Click(object sender, EventArgs e)
@@ -23,7 +25,6 @@ namespace RestaurantWinForm
             string login = LoginTextBox.Text;
             string password = PasswordTextBox.Text;
 
-            AuthManager authManager = new AuthManager();
             LoginResult result = authManager.Login(login, password);
             if(result == LoginResult.PasswordOrLoginIsWhiteSpace)
             {
@@ -52,9 +53,14 @@ namespace RestaurantWinForm
                     form.Show();
                 }
 
-                if(authManager.CurrentUser.Role == UserRole.Cook)
+                if(authManager.CurrentUser.Role == UserRole.Waiter)
                 {
                     var form = new WaiterForm();
+                    form.Show();
+                }
+                if(authManager.CurrentUser.Role == UserRole.Admin)
+                {
+                    var form = new AdminForm();
                     form.Show();
                 }
             }

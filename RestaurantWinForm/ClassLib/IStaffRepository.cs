@@ -11,5 +11,6 @@ namespace ClassLib
         LoginResult Login(string login, string password);
         Staff GetUserByLogin(string login);
         RegistrationResult Register(string username, string login, string password, UserRole role);
+        List<Staff> GetAllUsers();
     }
 }

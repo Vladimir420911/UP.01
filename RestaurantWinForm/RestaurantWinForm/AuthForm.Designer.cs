@@ -46,6 +46,7 @@
             // 
             this.PasswordTextBox.Location = new System.Drawing.Point(12, 78);
             this.PasswordTextBox.Name = "PasswordTextBox";
+            this.PasswordTextBox.PasswordChar = '*';
             this.PasswordTextBox.Size = new System.Drawing.Size(142, 20);
             this.PasswordTextBox.TabIndex = 1;
             // 
@@ -69,9 +70,9 @@
             // 
             // EnterButton
             // 
-            this.EnterButton.Location = new System.Drawing.Point(15, 118);
+            this.EnterButton.Location = new System.Drawing.Point(12, 118);
             this.EnterButton.Name = "EnterButton";
-            this.EnterButton.Size = new System.Drawing.Size(139, 23);
+            this.EnterButton.Size = new System.Drawing.Size(142, 23);
             this.EnterButton.TabIndex = 4;
             this.EnterButton.Text = "Войти";
             this.EnterButton.UseVisualStyleBackColor = true;
@@ -81,7 +82,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(172, 182);
+            this.ClientSize = new System.Drawing.Size(178, 174);
             this.Controls.Add(this.EnterButton);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
