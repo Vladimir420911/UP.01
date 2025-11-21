@@ -8,7 +8,7 @@ namespace ClassLib
 {
     public class OrderManager : IOrderRepository
     {
-        private List<Order> orders = new List<Order>();
+        public List<Order> orders = new List<Order>();
 
         public string AddOrder(Order order)
         {
