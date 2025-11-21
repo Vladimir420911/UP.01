@@ -18,6 +18,9 @@ namespace RestaurantWinForm
         {
             InitializeComponent();
             authManager = new AuthManager();
+            authManager.Register("user1", "login1", "123", UserRole.Waiter);
+            authManager.Register("user2", "login2", "1234", UserRole.Cook);
+            authManager.Register("admin1", "admin", "12345", UserRole.Admin);
         }
 
         private void EnterButton_Click(object sender, EventArgs e)
@@ -60,7 +63,7 @@ namespace RestaurantWinForm
                 }
                 if(authManager.CurrentUser.Role == UserRole.Admin)
                 {
-                    var form = new AdminForm();
+                    var form = new AdminForm(authManager);
                     form.Show();
                 }
             }

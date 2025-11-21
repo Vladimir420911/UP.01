@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,12 +10,7 @@ namespace ClassLib
     public class AuthManager : IStaffRepository
     {
         public Staff CurrentUser { get; private set; }
-        private List<Staff> users = new List<Staff>() 
-        {
-            new Staff(1, "123") {Login = "login1", UserName = "cook1", Role = UserRole.Cook},
-            new Staff(2, "1234") {Login = "login2", UserName = "waiter1", Role = UserRole.Waiter},
-            new Staff(3, "12345") {Login = "admin", UserName = "admin1", Role = UserRole.Admin}
-        };
+        private BindingList<Staff> users = new BindingList<Staff>();
 
         public Staff GetUserByLogin(string login)
         {
@@ -80,7 +76,7 @@ namespace ClassLib
             return RegistrationResult.Success;
         }
 
-        public List<Staff> GetAllUsers()
+        public BindingList<Staff> GetAllUsers()
         {
             return users;
         }

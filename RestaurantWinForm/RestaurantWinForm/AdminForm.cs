@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ClassLib;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,24 @@ namespace RestaurantWinForm
 {
     public partial class AdminForm : Form
     {
-        public AdminForm()
+        private AuthManager authManager_;
+        private BindingList<Staff> users_;
+        public AdminForm(AuthManager authManager)
         {
             InitializeComponent();
+            authManager_ = authManager;
+            users_ = authManager_.GetAllUsers();
+            StaffListBox.DataSource = users_;
+            StaffListBox.DisplayMember = "UserName";
+        }
+
+        private void AddUserMenuButton_Click(object sender, EventArgs e)
+        {
+            AddUserForm addUserForm = new AddUserForm(authManager_);
+            if(addUserForm.ShowDialog() == DialogResult.OK)
+            {
+                MessageBox.Show("Новый пользователь добавлен");
+            }
         }
     }
 }
