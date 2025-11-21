@@ -9,7 +9,7 @@ namespace ClassLib
     public class AuthManager : IStaffRepository
     {
         public Staff CurrentUser { get; private set; }
-        private List<Staff> users;
+        private List<Staff> users = new List<Staff>();
 
         public Staff GetUserByLogin(string login)
         {
@@ -47,6 +47,32 @@ namespace ClassLib
 
             CurrentUser = staff;
             return LoginResult.Success;
+        }
+
+        public RegistrationResult Register(string username, string login, string password, UserRole role)
+        {
+            if(string.IsNullOrWhiteSpace(username) || string.IsNullOrWhiteSpace(login) || string.IsNullOrWhiteSpace(password))
+            {
+                return RegistrationResult.EmptyFields;
+            }
+
+            if(users.Any(u => u.Login == login))
+            {
+                return RegistrationResult.ExistingLogin;
+            }
+
+            if(users.Any(u => u.UserName == username))
+            {
+                return RegistrationResult.ExistingUsername;
+            }
+
+            var newStaff = new Staff(users.Count+1, password);
+            newStaff.Login = login;
+            newStaff.UserName = username;
+            newStaff.Role = role;
+
+            users.Add(newStaff);
+            return RegistrationResult.Success;
         }
     }
 }
