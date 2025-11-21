@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,6 +10,7 @@ namespace ClassLib
     public class OrderManager : IOrderRepository
     {
         private List<Order> orders = new List<Order>();
+        private BindingList<OrderItem> menu = new BindingList<OrderItem>();
 
         public string AddOrder(Order order)
         {
@@ -29,7 +31,6 @@ namespace ClassLib
                 OrderId = orders.Count + 1,
                 SeatId = seatId,
                 Items = items,
-                TotalPrice = items.Sum(i => i.Price * i.Quantity),
                 Status = OrderStatus.Accepted
             };
 
@@ -48,6 +49,37 @@ namespace ClassLib
 
             }
             return "Заказ не найден";
+        }
+
+        public void AddNewOrderItem(string name, decimal price, string description)
+        {
+            // Проверка обязательных полей
+            if (string.IsNullOrWhiteSpace(name))
+            {
+                throw new ArgumentException("Заполните все обязательные поля");
+            }
+
+            // Проверка цены
+            if (price <= 0)
+            {
+                throw new ArgumentException("Цена должна быть положительным числом");
+            }
+
+            // Проверка дубликата названия
+            if (menu.Any(item => item.Name.Equals(name, StringComparison.OrdinalIgnoreCase)))
+            {
+                throw new InvalidOperationException("Блюдо с таким названием уже существует в меню");
+            }
+
+            // Добавление нового блюда
+            var newItem = new OrderItem(menu.Count+1, name, price, description);
+
+            menu.Add(newItem);
+        }
+
+        public BindingList<OrderItem> GetMenu()
+        {
+            return menu; // Возвращаем копию для защиты от изменений
         }
     }
 }
