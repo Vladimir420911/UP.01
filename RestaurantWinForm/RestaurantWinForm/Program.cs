@@ -16,7 +16,7 @@ namespace RestaurantWinForm
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new CookForm());
+            Application.Run(new AuthForm());
         }
     }
 }
