@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,9 +10,13 @@ namespace ClassLib
     public class OrderItem
     {
         private int MenuItemId;
+        [DisplayName("Имя")]
         public string Name { get; set; }
+        [DisplayName("Описание")]
+        public string Description { get; set; }
+        [DisplayName("Цена")]
         public decimal Price { get; set; }
-        public string Description{ get; set; }
+       
         public OrderItem(int menuItemId, string name, decimal price, string description)
         {
             MenuItemId = menuItemId;
