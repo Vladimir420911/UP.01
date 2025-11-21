@@ -80,5 +80,10 @@ namespace ClassLib
         {
             return users;
         }
+
+        public void Logout()
+        {
+            CurrentUser = null;
+        }
     }
 }

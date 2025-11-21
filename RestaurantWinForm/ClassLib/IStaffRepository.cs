@@ -13,5 +13,6 @@ namespace ClassLib
         Staff GetUserByLogin(string login);
         RegistrationResult Register(string username, string login, string password, UserRole role);
         BindingList<Staff> GetAllUsers();
+        void Logout();
     }
 }

@@ -32,13 +32,15 @@
             this.управлениеПерсоналомToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.AddUserMenuButton = new System.Windows.Forms.ToolStripMenuItem();
             this.StaffListBox = new System.Windows.Forms.ListBox();
+            this.LogoutMenuButton = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.управлениеПерсоналомToolStripMenuItem});
+            this.управлениеПерсоналомToolStripMenuItem,
+            this.LogoutMenuButton});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(800, 24);
@@ -68,6 +70,13 @@
             this.StaffListBox.Size = new System.Drawing.Size(158, 394);
             this.StaffListBox.TabIndex = 1;
             // 
+            // LogoutMenuButton
+            // 
+            this.LogoutMenuButton.Name = "LogoutMenuButton";
+            this.LogoutMenuButton.Size = new System.Drawing.Size(54, 20);
+            this.LogoutMenuButton.Text = "Выйти";
+            this.LogoutMenuButton.Click += new System.EventHandler(this.LogoutMenuButton_Click);
+            // 
             // AdminForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -91,5 +100,6 @@
         private System.Windows.Forms.ToolStripMenuItem управлениеПерсоналомToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem AddUserMenuButton;
         private System.Windows.Forms.ListBox StaffListBox;
+        private System.Windows.Forms.ToolStripMenuItem LogoutMenuButton;
     }
 }

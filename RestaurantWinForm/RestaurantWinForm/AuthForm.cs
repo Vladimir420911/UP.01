@@ -63,7 +63,7 @@ namespace RestaurantWinForm
                 }
                 if(authManager.CurrentUser.Role == UserRole.Admin)
                 {
-                    var form = new AdminForm(authManager);
+                    var form = new AdminForm(authManager, this);
                     form.Show();
                 }
             }
