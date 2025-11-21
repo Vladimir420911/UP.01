@@ -8,7 +8,7 @@ namespace ClassLib
 {
     public class OrderItem
     {
-        public int MenuItemId;
+        private int MenuItemId;
         public string Name { get; set; }
         public decimal Price { get; set; }
         public int Quantity { get; set; }
