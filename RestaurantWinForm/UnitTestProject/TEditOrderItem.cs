@@ -19,17 +19,14 @@ namespace TEditOrderItem
         [TestMethod]
         public void EditOrderItem_ValidData_UpdatesItemAndReturnsSuccessMessage()
         {
-            // Arrange
-
+            
             int id = 1;
             string newName = "Пицца НеМаргарита";
             decimal newPrice = 1000;
             string newDescription = "Это другая пицца, готовится по другому, тут другие калории";
 
-            // Act
             var result = orderManager_.EditOrderItem(id, newName, newPrice, newDescription);
 
-            // Assert
             Assert.IsNotNull(result);
             Assert.AreEqual(newName, result.Name);
             Assert.AreEqual(newPrice, result.Price);
@@ -45,10 +42,8 @@ namespace TEditOrderItem
             decimal newPrice = -1000;
             string newDescription = "Это другая пицца, готовится по другому, тут другие калории";
 
-            // Act
             var result = orderManager_.EditOrderItem(id, newName, newPrice, newDescription);
 
-            // Assert
             Assert.IsNull(result);
         }
 
@@ -61,10 +56,8 @@ namespace TEditOrderItem
             decimal newPrice = 0;
             string newDescription = "Это другая пицца, готовится по другому, тут другие калории";
 
-            // Act
             var result = orderManager_.EditOrderItem(id, newName, newPrice, newDescription);
 
-            // Assert
             Assert.IsNull(result);
         }
 
@@ -77,10 +70,8 @@ namespace TEditOrderItem
             decimal newPrice = 500;
             string newDescription = "";
 
-            // Act
             var result = orderManager_.EditOrderItem(id, newName, newPrice, newDescription);
 
-            // Assert
             Assert.IsNull(result);
         }
 
@@ -93,10 +84,8 @@ namespace TEditOrderItem
             decimal newPrice = 500;
             string newDescription = "   ";
 
-            // Act
             var result = orderManager_.EditOrderItem(id, newName, newPrice, newDescription);
 
-            // Assert
             Assert.IsNull(result);
         }
 
@@ -109,10 +98,8 @@ namespace TEditOrderItem
             decimal newPrice = 1000;
             string newDescription = "Это другая пицца, готовится по другому, тут другие калории";
 
-            // Act
             var result = orderManager_.EditOrderItem(id, newName, newPrice, newDescription);
 
-            // Assert
             Assert.IsNull(result);
         }
     }
