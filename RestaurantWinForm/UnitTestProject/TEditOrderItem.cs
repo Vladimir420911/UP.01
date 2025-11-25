@@ -1,7 +1,5 @@
 ﻿using ClassLib;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Moq;
-using System.Collections.Generic;
 
 [TestClass]
 public class TEditOrderItem
