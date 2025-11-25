@@ -12,6 +12,7 @@ namespace ClassLib
         string AddOrder(Order order);
         string UpdateOrderStatus(int orderId, OrderStatus newStatus);
         void AddNewOrderItem(string name, decimal price, string description);
-        OrderItem EditOrderItem(int id, string newName, decimal newPrice, string newDescription);
+        OrderItem GetItemById(int id);
+        OrderItem EditOrderItem(OrderItem item, string newName, decimal newPrice, string newDescription);
     }
 }
