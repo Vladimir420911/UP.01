@@ -65,6 +65,7 @@
   <ItemGroup>
     <Compile Include="TRegistration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TEditOrderItem.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

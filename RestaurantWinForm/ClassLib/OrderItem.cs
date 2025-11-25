@@ -10,6 +10,7 @@ namespace ClassLib
     public class OrderItem
     {
         private int MenuItemId;
+        public int ID_ { get { return MenuItemId; } }
         [DisplayName("Имя")]
         public string Name { get; set; }
         [DisplayName("Описание")]
