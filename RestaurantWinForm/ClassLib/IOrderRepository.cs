@@ -11,5 +11,7 @@ namespace ClassLib
         Order CreateOrder(int seatId, List<OrderItem> items);
         string AddOrder(Order order);
         string UpdateOrderStatus(int orderId, OrderStatus newStatus);
+        void AddNewOrderItem(string name, decimal price, string description);
+        OrderItem EditOrderItem(int id, string newName, decimal newPrice, string newDescription);
     }
 }

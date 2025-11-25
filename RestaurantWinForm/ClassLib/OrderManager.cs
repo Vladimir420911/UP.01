@@ -77,9 +77,38 @@ namespace ClassLib
             menu.Add(newItem);
         }
 
+        public OrderItem EditOrderItem(int id, string newName, decimal newPrice, string newDescription)
+        {
+            if(string.IsNullOrWhiteSpace(newName) || string.IsNullOrWhiteSpace(newDescription) || newPrice <= 0m)
+            {
+                return null;
+            }
+
+            OrderItem editItem;
+            foreach(var item in menu)
+            {
+                if(item.ID_ == id)
+                {
+                    editItem = item;
+                    editItem.Name = newName;
+                    editItem.Price = newPrice;
+                    editItem.Description = newDescription;
+                    menu.Remove(item);
+                    return editItem;
+                }
+            }
+
+            return null;
+        }
+
         public BindingList<OrderItem> GetMenu()
         {
             return menu; // Возвращаем копию для защиты от изменений
+        }
+
+        public void AddOrderItemToMenu(OrderItem item)
+        {
+            menu.Add(item);
         }
     }
 }
