@@ -100,6 +100,7 @@ namespace TEditOrderItem
 
             var result = orderManager_.EditOrderItem(id, newName, newPrice, newDescription);
 
+            // Assert
             Assert.IsNull(result);
         }
     }
