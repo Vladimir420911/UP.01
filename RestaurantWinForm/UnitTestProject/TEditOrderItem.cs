@@ -1,116 +1,119 @@
 ﻿using ClassLib;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-[TestClass]
-public class TEditOrderItem
+namespace TEditOrderItem
 {
-    private OrderManager orderManager_;
-
-    [TestInitialize]
-    public void TestInitialize()
+    [TestClass]
+    public class TEditOrderItem
     {
-        orderManager_ = new OrderManager();
+        private OrderManager orderManager_;
 
-        orderManager_.AddOrderItemToMenu(new OrderItem(1, "Пицца маргарита", 800, "Это пицца, готовится так то, тут столько то калорий"));
-    }
+        [TestInitialize]
+        public void TestInitialize()
+        {
+            orderManager_ = new OrderManager();
 
-    [TestMethod]
-    public void EditOrderItem_ValidData_UpdatesItemAndReturnsSuccessMessage()
-    {
-        // Arrange
-        
-        int id = 1;
-        string newName = "Пицца НеМаргарита";
-        decimal newPrice = 1000;
-        string newDescription = "Это другая пицца, готовится по другому, тут другие калории";
+            orderManager_.AddOrderItemToMenu(new OrderItem(1, "Пицца маргарита", 800, "Это пицца, готовится так то, тут столько то калорий"));
+        }
 
-        // Act
-        var result = orderManager_.EditOrderItem(id, newName, newPrice, newDescription);
+        [TestMethod]
+        public void EditOrderItem_ValidData_UpdatesItemAndReturnsSuccessMessage()
+        {
+            // Arrange
 
-        // Assert
-        Assert.IsNotNull(result);
-        Assert.AreEqual(newName, result.Name);
-        Assert.AreEqual(newPrice, result.Price);
-        Assert.AreEqual(newDescription, result.Description);
-    }
+            int id = 1;
+            string newName = "Пицца НеМаргарита";
+            decimal newPrice = 1000;
+            string newDescription = "Это другая пицца, готовится по другому, тут другие калории";
 
-    [TestMethod]
-    public void EditOrderItem_NegativePrice_ReturnsErrorMessage()
-    {
+            // Act
+            var result = orderManager_.EditOrderItem(id, newName, newPrice, newDescription);
 
-        int id = 1;
-        string newName = "Пицца НеМаргарита";
-        decimal newPrice = -1000;
-        string newDescription = "Это другая пицца, готовится по другому, тут другие калории";
+            // Assert
+            Assert.IsNotNull(result);
+            Assert.AreEqual(newName, result.Name);
+            Assert.AreEqual(newPrice, result.Price);
+            Assert.AreEqual(newDescription, result.Description);
+        }
 
-        // Act
-        var result = orderManager_.EditOrderItem(id, newName, newPrice, newDescription);
+        [TestMethod]
+        public void EditOrderItem_NegativePrice_ReturnsErrorMessage()
+        {
 
-        // Assert
-        Assert.IsNull(result);
-    }
+            int id = 1;
+            string newName = "Пицца НеМаргарита";
+            decimal newPrice = -1000;
+            string newDescription = "Это другая пицца, готовится по другому, тут другие калории";
 
-    [TestMethod]
-    public void EditOrderItem_ZeroPrice_ReturnsErrorMessage()
-    {
+            // Act
+            var result = orderManager_.EditOrderItem(id, newName, newPrice, newDescription);
 
-        int id = 1;
-        string newName = "Пицца НеМаргарита";
-        decimal newPrice = 0;
-        string newDescription = "Это другая пицца, готовится по другому, тут другие калории";
+            // Assert
+            Assert.IsNull(result);
+        }
 
-        // Act
-        var result = orderManager_.EditOrderItem(id, newName, newPrice, newDescription);
+        [TestMethod]
+        public void EditOrderItem_ZeroPrice_ReturnsErrorMessage()
+        {
 
-        // Assert
-        Assert.IsNull(result);
-    }
+            int id = 1;
+            string newName = "Пицца НеМаргарита";
+            decimal newPrice = 0;
+            string newDescription = "Это другая пицца, готовится по другому, тут другие калории";
 
-    [TestMethod]
-    public void EditOrderItem_EmptyFields_ReturnsErrorMessage()
-    {
+            // Act
+            var result = orderManager_.EditOrderItem(id, newName, newPrice, newDescription);
 
-        int id = 1;
-        string newName = "";
-        decimal newPrice = 500;
-        string newDescription = "";
+            // Assert
+            Assert.IsNull(result);
+        }
 
-        // Act
-        var result = orderManager_.EditOrderItem(id, newName, newPrice, newDescription);
+        [TestMethod]
+        public void EditOrderItem_EmptyFields_ReturnsErrorMessage()
+        {
 
-        // Assert
-        Assert.IsNull(result);
-    }
+            int id = 1;
+            string newName = "";
+            decimal newPrice = 500;
+            string newDescription = "";
 
-    [TestMethod]
-    public void EditOrderItem_WhiteSpaceFields_ReturnsErrorMessage()
-    {
-        
-        int id = 1;
-        string newName = "   ";
-        decimal newPrice = 500;
-        string newDescription = "   ";
+            // Act
+            var result = orderManager_.EditOrderItem(id, newName, newPrice, newDescription);
 
-        // Act
-        var result = orderManager_.EditOrderItem(id, newName, newPrice, newDescription);
+            // Assert
+            Assert.IsNull(result);
+        }
 
-        // Assert
-        Assert.IsNull(result);
-    }
+        [TestMethod]
+        public void EditOrderItem_WhiteSpaceFields_ReturnsErrorMessage()
+        {
 
-    [TestMethod]
-    public void EditOrderItem_NonExistentId_ReturnsNull()
-    {
+            int id = 1;
+            string newName = "   ";
+            decimal newPrice = 500;
+            string newDescription = "   ";
 
-        int id = 999; // Несуществующий ID
-        string newName = "Пицца НеМаргарита";
-        decimal newPrice = 1000;
-        string newDescription = "Это другая пицца, готовится по другому, тут другие калории";
+            // Act
+            var result = orderManager_.EditOrderItem(id, newName, newPrice, newDescription);
 
-        // Act
-        var result = orderManager_.EditOrderItem(id, newName, newPrice, newDescription);
+            // Assert
+            Assert.IsNull(result);
+        }
 
-        // Assert
-        Assert.IsNull(result);
+        [TestMethod]
+        public void EditOrderItem_NonExistentId_ReturnsNull()
+        {
+
+            int id = 999; // Несуществующий ID
+            string newName = "Пицца НеМаргарита";
+            decimal newPrice = 1000;
+            string newDescription = "Это другая пицца, готовится по другому, тут другие калории";
+
+            // Act
+            var result = orderManager_.EditOrderItem(id, newName, newPrice, newDescription);
+
+            // Assert
+            Assert.IsNull(result);
+        }
     }
 }
