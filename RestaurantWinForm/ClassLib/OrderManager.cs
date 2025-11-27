@@ -10,7 +10,11 @@ namespace ClassLib
     public class OrderManager : IOrderRepository
     {
         private List<Order> orders = new List<Order>();
-        private BindingList<OrderItem> menu = new BindingList<OrderItem>();
+        private BindingList<OrderItem> menu = new BindingList<OrderItem>()
+        {
+            new OrderItem(1, "Пицца крутая", 800, "Вы станете толстым если купите эту пиццу"),
+            new OrderItem(2, "Пицца здоровая", 900, "Вы НЕ станете толстым если купите эту пиццу"),
+        };
 
         public string AddOrder(Order order)
         {
@@ -77,26 +81,35 @@ namespace ClassLib
             menu.Add(newItem);
         }
 
-        public OrderItem EditOrderItem(int id, string newName, decimal newPrice, string newDescription)
+        public OrderItem EditOrderItem(OrderItem item, string newName, decimal newPrice, string newDescription)
         {
             if(string.IsNullOrWhiteSpace(newName) || string.IsNullOrWhiteSpace(newDescription) || newPrice <= 0m)
             {
                 return null;
             }
 
-            OrderItem editItem;
-            foreach(var item in menu)
+            if(item != null)
             {
-                if(item.ID_ == id)
-                {
-                    editItem = item;
-                    editItem.Name = newName;
-                    editItem.Price = newPrice;
-                    editItem.Description = newDescription;
-                    menu.Remove(item);
-                    return editItem;
-                }
+                OrderItem editItem = item;
+                menu.Remove(item);
+                editItem.Name = newName;
+                editItem.Price = newPrice;
+                editItem.Description = newDescription;
+
+                return editItem;
             }
+            //foreach(var item in menu)
+            //{
+            //    if(item.ID_ == id)
+            //    {
+            //        editItem = item;
+            //        editItem.Name = newName;
+            //        editItem.Price = newPrice;
+            //        editItem.Description = newDescription;
+            //        menu.Remove(item);
+            //        return editItem;
+            //    }
+            //}
 
             return null;
         }
@@ -110,6 +123,18 @@ namespace ClassLib
         {
             menu.Add(item);
         }
+
+        public OrderItem GetItemById(int id)
+        {
+            foreach(var item in menu)
+            {
+                if(item.ID_ == id)
+                {
+                    return item;
+                }
+            }
+
+            return null;
         public List<Order> GetOrders()
         {
             return orders;
