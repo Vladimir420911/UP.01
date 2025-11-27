@@ -30,7 +30,7 @@ namespace ClassLib
             {
                 OrderId = orders.Count + 1,
                 SeatId = seatId,
-                Items = items,
+               // Items = items,
                 Status = OrderStatus.Accepted
             };
 
@@ -109,6 +109,10 @@ namespace ClassLib
         public void AddOrderItemToMenu(OrderItem item)
         {
             menu.Add(item);
+        }
+        public List<Order> GetOrders()
+        {
+            return orders;
         }
     }
 }

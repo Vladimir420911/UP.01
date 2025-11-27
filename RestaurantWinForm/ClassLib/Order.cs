@@ -10,7 +10,7 @@ namespace ClassLib
     {
         public int OrderId { get; set; }
         public int SeatId { get; set; }
-        public List<OrderItem> Items { get; set; }
+        public Dictionary<OrderItem, int> Items { get; set; }
         public decimal TotalPrice { get; set; }
         public OrderStatus Status { get; set; }
     }
