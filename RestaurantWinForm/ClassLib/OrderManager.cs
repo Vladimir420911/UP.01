@@ -34,7 +34,7 @@ namespace ClassLib
             {
                 OrderId = orders.Count + 1,
                 SeatId = seatId,
-                Items = items,
+               // Items = items,
                 Status = OrderStatus.Accepted
             };
 
@@ -135,6 +135,9 @@ namespace ClassLib
             }
 
             return null;
+        public List<Order> GetOrders()
+        {
+            return orders;
         }
     }
 }

@@ -138,6 +138,10 @@
       <Project>{393bee2f-647c-4d87-8115-bfbafa908d6c}</Project>
       <Name>ClassLib</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ReceiptControl\ReceiptControl.csproj">
+      <Project>{7fe9d539-e289-4607-b450-0bed3eb38496}</Project>
+      <Name>ReceiptControl</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

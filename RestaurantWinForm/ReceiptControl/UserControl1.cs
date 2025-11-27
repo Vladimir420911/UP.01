@@ -1,20 +1,18 @@
-﻿using ClassLib;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Drawing;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace RestaurantWinForm
+namespace ReceiptControl
 {
-    public partial class WaiterForm : Form
+    public partial class UserControl1: UserControl
     {
-        private OrderManager manager;
-        public WaiterForm()
+        public UserControl1()
         {
             InitializeComponent();
         }
