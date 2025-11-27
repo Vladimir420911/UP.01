@@ -18,56 +18,61 @@ namespace RestaurantWinForm
         {
             InitializeComponent();
             authManager = new AuthManager();
-            authManager.Register("user1", "login1", "123", UserRole.Waiter);
-            authManager.Register("user2", "login2", "1234", UserRole.Cook);
-            authManager.Register("admin1", "admin", "12345", UserRole.Admin);
         }
 
         private void EnterButton_Click(object sender, EventArgs e)
         {
-            string login = LoginTextBox.Text;
-            string password = PasswordTextBox.Text;
-
-            LoginResult result = authManager.Login(login, password);
-            if(result == LoginResult.PasswordOrLoginIsWhiteSpace)
+            try
             {
-                MessageBox.Show("Поля логин и пароль не могут быть пустыми", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
+                string login = LoginTextBox.Text;
+                string password = PasswordTextBox.Text;
 
-            if(result == LoginResult.WrongLogin)
-            {
-                MessageBox.Show("Неверный логин", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
+                LoginResult result = authManager.Login(login, password);
 
-            if(result == LoginResult.WrongPassword)
-            {
-                MessageBox.Show("Неверный пароль", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-            if(result == LoginResult.Success)
-            {
-                this.Hide();
-                if (authManager.CurrentUser.Role == UserRole.Cook)
+                if (result == LoginResult.PasswordOrLoginIsWhiteSpace)
                 {
-                    var form = new CookForm();
-                    form.Show();
+                    MessageBox.Show("Поля логин и пароль не могут быть пустыми", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
                 }
 
-                if(authManager.CurrentUser.Role == UserRole.Waiter)
+                if (result == LoginResult.WrongLogin)
                 {
-                    var form = new WaiterForm();
-                    form.Show();
+                    MessageBox.Show("Неверный логин", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
                 }
-                if(authManager.CurrentUser.Role == UserRole.Admin)
+
+                if (result == LoginResult.WrongPassword)
                 {
-                    var form = new AdminForm(authManager, this);
-                    form.Show();
+                    MessageBox.Show("Неверный пароль", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                if (result == LoginResult.Success)
+                {
+                    this.Hide();
+                    if (authManager.CurrentUser.Role == UserRole.Cook)
+                    {
+                        var form = new CookForm();
+                        form.Show();
+                    }
+
+                    if (authManager.CurrentUser.Role == UserRole.Waiter)
+                    {
+                        var form = new WaiterForm();
+                        form.Show();
+                    }
+                    if (authManager.CurrentUser.Role == UserRole.Admin)
+                    {
+                        var form = new AdminForm(authManager, this);
+                        form.Show();
+                    }
                 }
             }
-
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ошибка подключения к базе данных: {ex.Message}", "Ошибка",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

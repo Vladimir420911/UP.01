@@ -8,11 +8,11 @@ namespace ClassLib
 {
     public interface IOrderRepository
     {
-        Order CreateOrder(int seatId, List<OrderItem> items);
+        Order CreateOrder(int seatId, Dictionary<OrderItem, int> items);
         string AddOrder(Order order);
         string UpdateOrderStatus(int orderId, OrderStatus newStatus);
         void AddNewOrderItem(string name, decimal price, string description);
         OrderItem GetItemById(int id);
-        OrderItem EditOrderItem(OrderItem item, string newName, decimal newPrice, string newDescription);
+        void EditOrderItem(OrderItem item, string newName, decimal newPrice, string newDescription);
     }
 }

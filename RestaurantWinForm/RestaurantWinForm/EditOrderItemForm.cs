@@ -21,6 +21,14 @@ namespace RestaurantWinForm
             orderManager_ = orderManager;
             editItem = orderManager_.GetItemById(id);
 
+            if (editItem == null)
+            {
+                MessageBox.Show("Блюдо не найдено", "Ошибка",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.Close();
+                return;
+            }
+
             NameTextBox.Text = editItem.Name;
             PriceNumericUpDown.Value = editItem.Price;
             DescriptionTextBox.Text = editItem.Description;
@@ -28,18 +36,32 @@ namespace RestaurantWinForm
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            string newName = NameTextBox.Text;
-            decimal newPrice = PriceNumericUpDown.Value;
-            string newDescription = DescriptionTextBox.Text;
-
-            OrderItem item = orderManager_.EditOrderItem(editItem, newName, newPrice, newDescription);
-
-            if(item != null)
+            try
             {
-                orderManager_.AddOrderItemToMenu(item);
+                string newName = NameTextBox.Text.Trim();
+                decimal newPrice = PriceNumericUpDown.Value;
+                string newDescription = DescriptionTextBox.Text.Trim();
+
+                // Вызываем метод, который ничего не возвращает
+                orderManager_.EditOrderItem(editItem, newName, newPrice, newDescription);
+
+                MessageBox.Show("Блюдо успешно обновлено", "Успех",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 this.DialogResult = DialogResult.OK;
+                this.Close();
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ошибка при обновлении блюда: {ex.Message}", "Ошибка",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.Cancel;
+            this.Close();
         }
     }
 }

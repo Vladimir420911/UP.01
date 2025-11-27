@@ -31,12 +31,12 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.управлениеПерсоналомToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.AddUserMenuButton = new System.Windows.Forms.ToolStripMenuItem();
-            this.LogoutMenuButton = new System.Windows.Forms.ToolStripMenuItem();
-            this.StaffListBox = new System.Windows.Forms.ListBox();
             this.MenuToolStripButton = new System.Windows.Forms.ToolStripMenuItem();
-            this.MenuTable = new System.Windows.Forms.DataGridView();
             this.AddOrderItemButton = new System.Windows.Forms.ToolStripMenuItem();
             this.EditOrderItemButton = new System.Windows.Forms.ToolStripMenuItem();
+            this.LogoutMenuButton = new System.Windows.Forms.ToolStripMenuItem();
+            this.StaffListBox = new System.Windows.Forms.ListBox();
+            this.MenuTable = new System.Windows.Forms.DataGridView();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MenuTable)).BeginInit();
             this.SuspendLayout();
@@ -68,6 +68,29 @@
             this.AddUserMenuButton.Text = "Добавить сотрудника";
             this.AddUserMenuButton.Click += new System.EventHandler(this.AddUserMenuButton_Click);
             // 
+            // MenuToolStripButton
+            // 
+            this.MenuToolStripButton.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.AddOrderItemButton,
+            this.EditOrderItemButton});
+            this.MenuToolStripButton.Name = "MenuToolStripButton";
+            this.MenuToolStripButton.Size = new System.Drawing.Size(53, 20);
+            this.MenuToolStripButton.Text = "Меню";
+            // 
+            // AddOrderItemButton
+            // 
+            this.AddOrderItemButton.Name = "AddOrderItemButton";
+            this.AddOrderItemButton.Size = new System.Drawing.Size(194, 22);
+            this.AddOrderItemButton.Text = "Добавить блюдо";
+            this.AddOrderItemButton.Click += new System.EventHandler(this.AddOrderItemButton_Click);
+            // 
+            // EditOrderItemButton
+            // 
+            this.EditOrderItemButton.Name = "EditOrderItemButton";
+            this.EditOrderItemButton.Size = new System.Drawing.Size(194, 22);
+            this.EditOrderItemButton.Text = "Редактировать блюдо";
+            this.EditOrderItemButton.Click += new System.EventHandler(this.EditOrderItemButton_Click);
+            // 
             // LogoutMenuButton
             // 
             this.LogoutMenuButton.Name = "LogoutMenuButton";
@@ -83,15 +106,6 @@
             this.StaffListBox.Size = new System.Drawing.Size(176, 394);
             this.StaffListBox.TabIndex = 1;
             // 
-            // MenuToolStripButton
-            // 
-            this.MenuToolStripButton.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.AddOrderItemButton,
-            this.EditOrderItemButton});
-            this.MenuToolStripButton.Name = "MenuToolStripButton";
-            this.MenuToolStripButton.Size = new System.Drawing.Size(53, 20);
-            this.MenuToolStripButton.Text = "Меню";
-            // 
             // MenuTable
             // 
             this.MenuTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -99,19 +113,6 @@
             this.MenuTable.Name = "MenuTable";
             this.MenuTable.Size = new System.Drawing.Size(571, 394);
             this.MenuTable.TabIndex = 2;
-            // 
-            // AddOrderItemButton
-            // 
-            this.AddOrderItemButton.Name = "AddOrderItemButton";
-            this.AddOrderItemButton.Size = new System.Drawing.Size(194, 22);
-            this.AddOrderItemButton.Text = "Добавить блюдо";
-            // 
-            // EditOrderItemButton
-            // 
-            this.EditOrderItemButton.Name = "EditOrderItemButton";
-            this.EditOrderItemButton.Size = new System.Drawing.Size(194, 22);
-            this.EditOrderItemButton.Text = "Редактировать блюдо";
-            this.EditOrderItemButton.Click += new System.EventHandler(this.EditOrderItemButton_Click);
             // 
             // AdminForm
             // 

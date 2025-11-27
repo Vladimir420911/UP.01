@@ -26,7 +26,7 @@ namespace RestaurantWinForm
 
             MenuTable.DataSource = orderManager.GetMenu();
 
-            users_ = authManager_.GetAllUsers();
+            users_ = authManager.GetAllUsers();
             StaffListBox.DataSource = users_;
             StaffListBox.DisplayMember = "UserName";
         }
@@ -36,6 +36,7 @@ namespace RestaurantWinForm
             AddUserForm addUserForm = new AddUserForm(authManager_);
             if(addUserForm.ShowDialog() == DialogResult.OK)
             {
+                StaffListBox.DataSource = authManager_.GetAllUsers();
                 MessageBox.Show("Новый пользователь добавлен");
             }
         }
@@ -49,14 +50,46 @@ namespace RestaurantWinForm
 
         private void EditOrderItemButton_Click(object sender, EventArgs e)
         {
-            if(MenuTable.SelectedRows.Count == 1)
+            if (MenuTable.SelectedRows.Count > 0)
             {
-                int itemId = MenuTable.CurrentCell.RowIndex + 1;
-                EditOrderItemForm form = new EditOrderItemForm(orderManager, itemId);
+                var selectedRow = MenuTable.SelectedRows[0];
+                var orderItem = selectedRow.DataBoundItem as OrderItem;
+
+                if (orderItem != null)
+                {
+                    int itemId = orderItem.ID_; // Правильный ID из объекта
+                    EditOrderItemForm form = new EditOrderItemForm(orderManager, itemId);
+                    if (form.ShowDialog() == DialogResult.OK)
+                    {
+                        // Обновляем таблицу после редактирования
+                        MenuTable.DataSource = orderManager.GetMenu();
+                        MessageBox.Show("Блюдо успешно обновлено");
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Выберите блюдо для редактирования", "Внимание",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void AddOrderItemButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                AddOrderItem form = new AddOrderItem();
                 if (form.ShowDialog() == DialogResult.OK)
                 {
-                    MessageBox.Show("Блюдо успешно обновлено");
+                    // Обновить таблицу после добавления
+                    MenuTable.DataSource = orderManager.GetMenu();
+                    MessageBox.Show("Блюдо успешно добавлено");
                 }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ошибка: {ex.Message}", "Ошибка",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }
