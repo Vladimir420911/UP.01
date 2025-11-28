@@ -32,7 +32,7 @@
             this.OrdersTable = new System.Windows.Forms.DataGridView();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.AddOrderButton = new System.Windows.Forms.ToolStripButton();
-            this.userControl11 = new ReceiptControl.UserControl1();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.OrdersTable)).BeginInit();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -67,19 +67,20 @@
             this.AddOrderButton.Text = "Добавить заказ";
             this.AddOrderButton.Click += new System.EventHandler(this.AddOrderButton_Click);
             // 
-            // userControl11
+            // richTextBox1
             // 
-            this.userControl11.Location = new System.Drawing.Point(569, 38);
-            this.userControl11.Name = "userControl11";
-            this.userControl11.Size = new System.Drawing.Size(219, 256);
-            this.userControl11.TabIndex = 2;
+            this.richTextBox1.Location = new System.Drawing.Point(585, 39);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.Size = new System.Drawing.Size(203, 255);
+            this.richTextBox1.TabIndex = 2;
+            this.richTextBox1.Text = "";
             // 
             // WaiterForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 325);
-            this.Controls.Add(this.userControl11);
+            this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.OrdersTable);
             this.Name = "WaiterForm";
@@ -98,6 +99,6 @@
         private System.Windows.Forms.DataGridView OrdersTable;
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripButton AddOrderButton;
-        private ReceiptControl.UserControl1 userControl11;
+        private System.Windows.Forms.RichTextBox richTextBox1;
     }
 }

@@ -9,8 +9,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassLib", "ClassLib\ClassL
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestProject", "UnitTestProject\UnitTestProject.csproj", "{7D4115B5-6E26-4A40-B536-CF3328672512}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReceiptControl", "ReceiptControl\ReceiptControl.csproj", "{7FE9D539-E289-4607-B450-0BED3EB38496}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,10 +27,6 @@ Global
 		{7D4115B5-6E26-4A40-B536-CF3328672512}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7D4115B5-6E26-4A40-B536-CF3328672512}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7D4115B5-6E26-4A40-B536-CF3328672512}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7FE9D539-E289-4607-B450-0BED3EB38496}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7FE9D539-E289-4607-B450-0BED3EB38496}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7FE9D539-E289-4607-B450-0BED3EB38496}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7FE9D539-E289-4607-B450-0BED3EB38496}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

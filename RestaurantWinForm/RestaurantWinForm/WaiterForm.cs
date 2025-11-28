@@ -32,8 +32,40 @@ namespace RestaurantWinForm
 
                 if (selectedOrder != null)
                 {
-                    userControl11.UpdateOrderInfo(selectedOrder);
+                    StringBuilder sb = new StringBuilder();
+                    sb.AppendLine($"=== ЧЕК ===");
+                    sb.AppendLine($"Заказ #{selectedOrder.OrderId}");
+                    sb.AppendLine($"Место: {selectedOrder.SeatId}");
+                    sb.AppendLine($"Статус: {selectedOrder.Status}");
+                    sb.AppendLine("----------------------------");
+                    sb.AppendLine("Позиции:");
+
+                    if (selectedOrder.Items != null && selectedOrder.Items.Count > 0)
+                    {
+                        foreach (var item in selectedOrder.Items)
+                        {
+                            var orderItem = item.Key;
+                            var quantity = item.Value;
+                            sb.AppendLine($"  - {orderItem.Name} x{quantity}");
+                            sb.AppendLine($"    {orderItem.Price} руб. × {quantity} = {orderItem.Price * quantity} руб.");
+                        }
+                    }
+                    else
+                    {
+                        sb.AppendLine("  Нет позиций");
+                    }
+
+                    sb.AppendLine("----------------------------");
+                    sb.AppendLine($"ИТОГО: {selectedOrder.TotalPrice} руб.");
+                    sb.AppendLine("====================");
+
+                    richTextBox1.Text = sb.ToString();
                 }
+                else
+                {
+                    richTextBox1.Text = "Заказ не выбран";
+                }
+
             }
         }
 
