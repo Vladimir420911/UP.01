@@ -18,36 +18,23 @@ namespace RestaurantWinForm
         {
             InitializeComponent();
             _orderManager = new OrderManager();
-            UpdateMenuGrid();
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
             // Получаем данные из полей ввода
             string name = txtName.Text.Trim();
-            string priceText = txtPrice.Text.Trim();
+            decimal price = PriceNumericUpDown.Value;
             string description = txtDescription.Text.Trim();
 
             try
             {
-                // Валидация цены (проверяем, что это число)
-                if (!decimal.TryParse(priceText, out decimal price))
-                {
-                    MessageBox.Show("Цена должна быть числом!", "Ошибка",
-                        MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-
-                // ВСЮ ОСТАЛЬНУЮ ВАЛИДАЦИЮ ДЕЛАЕТ САМ МЕТОД AddNewOrderItem!
                 _orderManager.AddNewOrderItem(name, price, description);
 
                 // Успешное сообщение в отдельном окне
                 MessageBox.Show("Блюдо успешно добавлено в меню!", "Успех",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                // Очищаем поля и обновляем список
-                ClearForm();
-                UpdateMenuGrid();
+                this.DialogResult = DialogResult.OK;
             }
             catch (Exception ex)
             {
@@ -56,34 +43,6 @@ namespace RestaurantWinForm
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
-        }
-
-        private void ClearForm()
-        {
-            txtName.Text = "";
-            txtPrice.Text = "";
-            txtDescription.Text = "";
-        }
-
-        private void UpdateMenuGrid()
-        {
-            var menu = _orderManager.GetMenu();
-            MenuTable.DataSource = menu;
-            MenuTable.AutoGenerateColumns = true;
-        }
-
-        // Валидация цены (только цифры и точка)
-        private void txtPrice_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
-            {
-                e.Handled = true;
-            }
-
-            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
-            {
-                e.Handled = true;
-            }
         }
 
         private void btnCancel_Click(object sender, EventArgs e)

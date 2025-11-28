@@ -83,7 +83,6 @@ namespace RestaurantWinForm
                 {
                     // Обновить таблицу после добавления
                     MenuTable.DataSource = orderManager.GetMenu();
-                    MessageBox.Show("Блюдо успешно добавлено");
                 }
             }
             catch (Exception ex)

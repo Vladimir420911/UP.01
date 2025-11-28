@@ -40,6 +40,7 @@
             // 
             // OrdersTable
             // 
+            this.OrdersTable.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.OrdersTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.OrdersTable.Location = new System.Drawing.Point(12, 36);
             this.OrdersTable.Name = "OrdersTable";
