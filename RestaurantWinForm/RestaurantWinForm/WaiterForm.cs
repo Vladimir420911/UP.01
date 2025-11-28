@@ -60,5 +60,10 @@ namespace RestaurantWinForm
                 LoadOrders(); // Обновляем список заказов после добавления
             }
         }
+
+        private void WaiterForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

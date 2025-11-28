@@ -108,6 +108,7 @@
             // 
             // MenuTable
             // 
+            this.MenuTable.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.MenuTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.MenuTable.Location = new System.Drawing.Point(208, 36);
             this.MenuTable.Name = "MenuTable";
@@ -125,6 +126,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "AdminForm";
             this.Text = "AdminForm";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.AdminForm_FormClosed);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MenuTable)).EndInit();

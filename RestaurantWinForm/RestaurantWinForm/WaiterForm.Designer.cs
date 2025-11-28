@@ -42,7 +42,7 @@
             this.OrdersTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.OrdersTable.Location = new System.Drawing.Point(12, 28);
             this.OrdersTable.Name = "OrdersTable";
-            this.OrdersTable.Size = new System.Drawing.Size(538, 410);
+            this.OrdersTable.Size = new System.Drawing.Size(538, 266);
             this.OrdersTable.TabIndex = 0;
             // 
             // toolStrip1
@@ -68,21 +68,22 @@
             // 
             // userControl11
             // 
-            this.userControl11.Location = new System.Drawing.Point(569, 49);
+            this.userControl11.Location = new System.Drawing.Point(569, 38);
             this.userControl11.Name = "userControl11";
-            this.userControl11.Size = new System.Drawing.Size(219, 389);
+            this.userControl11.Size = new System.Drawing.Size(219, 256);
             this.userControl11.TabIndex = 2;
             // 
             // WaiterForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 325);
             this.Controls.Add(this.userControl11);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.OrdersTable);
             this.Name = "WaiterForm";
             this.Text = "Интерфейс официанта";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.WaiterForm_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.OrdersTable)).EndInit();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();

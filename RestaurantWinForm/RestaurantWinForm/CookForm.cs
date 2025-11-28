@@ -205,5 +205,10 @@ namespace RestaurantWinForm
                 default: return status.ToString();
             }
         }
+
+        private void CookForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

@@ -12,7 +12,7 @@ namespace ClassLib
 {
     public class AuthManager : IStaffRepository
     {
-        private string _connectionString = "server=localhost;user=root;database=RestaurantDB;password=123456;port=3307;";
+        private string _connectionString = "server=localhost;user=root;database=restarauntdb;password=1234567890;port=3306;";
         public Staff CurrentUser { get; private set; }
 
         public Staff GetUserByLogin(string login)

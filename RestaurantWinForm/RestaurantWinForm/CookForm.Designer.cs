@@ -97,6 +97,7 @@
             this.Controls.Add(this.OrdersTable);
             this.Name = "CookForm";
             this.Text = "Интерфейс повара";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.CookForm_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.OrdersTable)).EndInit();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();

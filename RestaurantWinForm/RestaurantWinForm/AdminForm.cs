@@ -92,5 +92,13 @@ namespace RestaurantWinForm
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void AdminForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if(authManager_.CurrentUser != null)
+            {
+                Application.Exit();
+            }
+        }
     }
 }
