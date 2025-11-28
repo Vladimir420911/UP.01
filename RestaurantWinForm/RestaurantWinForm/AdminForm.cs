@@ -63,7 +63,6 @@ namespace RestaurantWinForm
                     {
                         // Обновляем таблицу после редактирования
                         MenuTable.DataSource = orderManager.GetMenu();
-                        MessageBox.Show("Блюдо успешно обновлено");
                     }
                 }
             }
